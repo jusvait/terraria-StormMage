@@ -1,0 +1,3 @@
+displayName = StormMage
+author = StormMageAuthor
+version = 0.1
