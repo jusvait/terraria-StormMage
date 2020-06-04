@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Microsoft.Xna.Framework;
 
 namespace StormMage.Items.Armor
 {
@@ -20,15 +21,6 @@ namespace StormMage.Items.Armor
             item.defense = 22;
         }
 
-        public override void PostDrawInWorld(Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch,
-                                            Microsoft.Xna.Framework.Color lightColor,
-                                            Microsoft.Xna.Framework.Color alphaColor,
-                                            float rotation, float scale, int whoAmI) {
-
-            Texture2D glowmask = mod.GetTexture("Items/Armor/StormRobe_Glowmask");
-
-        }
-
         public override void SetMatch(bool male, ref int equipSlot, ref bool robes)
         {
             equipSlot = StormMage.robesBottomSlot;
@@ -36,8 +28,12 @@ namespace StormMage.Items.Armor
         }
 
 
+        public override void ArmorArmGlowMask(Player drawPlayer, float shadow, ref int glowMask, ref Color color) {
+            glowMask = StormMage.robeArmGlowmask;
+        }
+
         public override void DrawHands(ref bool drawHands, ref bool drawArms) {
-            drawHands = true;
+            drawHands = false;
         }
 
 
